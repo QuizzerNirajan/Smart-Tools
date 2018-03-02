@@ -2,7 +2,7 @@
 #define HEADER_H_INCLUDED
 void show_record();
 void help();
-void update(float , char []);
+void update(double);
 void menu();
 void timer();
 void clrscr();

@@ -1,9 +1,9 @@
 # depslib dependency file v1.0
-1519994532 source:c:\users\nbasn\desktop\new folder\smart tools\main.c
+1519997094 source:c:\users\nbasn\desktop\new folder\smart tools\main.c
 	"library.h"
 	"header.h"
 
-1519994583 c:\users\nbasn\desktop\new folder\smart tools\header.h
+1519998073 c:\users\nbasn\desktop\new folder\smart tools\header.h
 
 1519994532 c:\users\nbasn\desktop\new folder\smart tools\library.h
 	<stdio.h>
@@ -14,4 +14,8 @@
 	<string.h>
 	<stdbool.h>
 	<unistd.h>
+
+1519998231 source:c:\users\nbasn\desktop\new folder\smart tools\header.c
+	"header.h"
+	"library.h"
 

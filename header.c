@@ -246,6 +246,7 @@ void welcome(){
 void decision(char choice){
   switch(toupper(choice)){
     case 'A':
+    system("cls");
     signIn();//signIn() function declaration
     break;
     case 'B':
@@ -253,6 +254,7 @@ void decision(char choice){
     signUp(); //signUp() function declaration
     break;
     case 'C':
+    system("cls");
     menu();
     break;
     case 'D':
@@ -265,12 +267,12 @@ void decision(char choice){
   }//singUp() function definition
 
 void signUp(){
-
+printf("\n\n");
   char Uname[30],password[30];
   FILE *fptr;
-  printf("Username :");
+  printf("\t Username :");
   scanf("%s",Uname);//Username input
-  printf("Password:");
+  printf("\t Password:");
   scanf("%s",password);//Password input
   fptr = fopen("List.txt", "a+");
 
@@ -283,11 +285,12 @@ void signUp(){
  //signIn() function definition
 
 void signIn(){
+  printf("\n\n\n");
   list *l1; //structure pointer variable(array) declaration
   char Uname1[30],p1[30];char c;int n=0,i=0,count=0;
-  printf("Username : ");
+  printf("\tUsername : ");
   scanf ("%s",Uname1);
-  printf("Password : ");
+  printf("\tPassword : ");
   scanf ("%s",p1);
   FILE * fp;
   fp=fopen("List.txt","r");
@@ -341,15 +344,15 @@ void Secret(){
   scanf("%d",&choices5);
   switch(toupper(choices5))
   {
-   case 1 : newFile(); //newFile() function calling
+   case 1 : clrscr();newFile(); //newFile() function calling
    break;
-   case 2 : DisplayNote(); //DisplayNote() function Calling
+   case 2 : clrscr();DisplayNote(); //DisplayNote() function Calling
    break;
-   case 3 : Edit(); //Edit() function calling
+   case 3 : clrscr(); Edit(); //Edit() function calling
    break;
    case 4 : Delete_File();//Delete_File() function calling
    break;
-   case 5 :system("cls") ;welcome();//Return to welcome screen
+   case 5 :clrscr(); welcome();//Return to welcome screen
    break;
    case 6 : exit(1); //Exit the program successfully
    break;
@@ -359,6 +362,7 @@ void Secret(){
 }
 //Create new fle function
 void newFile(){
+  printf("\n\n");
   char ch,filename1[30],str1[50];int n,i;
   printf("Enter the filename :");
   fflush(stdin);
@@ -400,7 +404,7 @@ system("cls");
 //Edit the file function
 void Edit(void){
 
-
+    printf("\n\n");
     FILE *fileptr1, *fileptr2;
     char filechar[40];
     char c;
@@ -480,7 +484,7 @@ void Delete_File(){
   bool r;
   printf("Enter the file name : ");
   scanf("%s",filename);
-  r=remove(filename);
+  r=remove(strcat(filename,".txt"));
   if(r==false)
   printf("File removed successfully\n");
   else
@@ -505,11 +509,12 @@ void show_record(){
 
 
 
- void update(float score, char playername[20]){
-   FILE *f;
+ void update(double score){
+     printf("\n\n");
+   FILE *f;char playername[20];
    f=fopen("score.txt","a+");
    printf("Write a name to make your score secure : \n");
-   gets(playername);
+   scanf("%[^\n]",playername);
    if (f== NULL)
    {
      printf("File cannpt be opened\n");
@@ -521,9 +526,9 @@ void show_record(){
 void quiz(){
       {
       int r,r1,count,i,n;
-      float score;
-      char playername[20];
-      char choice;
+      double score;
+
+      char choice,  choice2;
 
       mainhome:
 
@@ -555,8 +560,7 @@ void quiz(){
      {
        system("cls");
 
-     printf("\n\n\n\n\n\n\n\n\n\n\t\t\tResister your name:");
-    gets(playername);
+
       goto home;
 
       home:
@@ -697,8 +701,8 @@ void quiz(){
     if(score>0.00 && score<7000)
       {
       printf("\n\n\t\t CONGRATULATION ");
-        printf("\n\t  %s won Rs.%.2f",playername,score);
-        goto go;
+        printf("\n\t  you won Rs.%.2f",score);
+
       }
 
 
@@ -707,22 +711,26 @@ void quiz(){
     printf("\n\n\t******** SORRY YOU DIDN'T WIN ANY CASH ********");
        printf("\n\t\t Thanks for your participation");
        printf("\n\t\t TRY AGAIN");
-       goto go;}
+       }
 
-    go:
     puts("\n\n Press Y if you want to play next game");
     puts(" Press any key if you want to go main menu");
-    if (toupper(getch())=='Y')
+
+    scanf("%c",&choice2);
+    if (toupper(choice2=='Y'))
+    {
     menu();
+    }
 
     else
      {
-     update(score, playername);
+     update(score);
      goto mainhome;
        }
      }
      else
      {
+
        printf("Enter a valid choice \n");
       goto mainhome;
      }
@@ -731,6 +739,7 @@ void quiz(){
 
 void DisplayNote() //DisplayNote() function definition
 {
+  printf("\n\n");
   FILE *fptr;char ch,fname[30];
   scanf("%s",fname);
   fptr = fopen(strcat(fname,".txt"),"r");

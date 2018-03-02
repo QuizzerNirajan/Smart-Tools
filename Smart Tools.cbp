@@ -31,6 +31,15 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="header.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="header.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="library.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
